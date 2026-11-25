@@ -7,7 +7,7 @@ there are 11 screens.
 
 Unity version: **6000.3.24f1** (builtin render pipeline, portrait, Android)
 
-## Video Link : https://youtu.be/YgCkZ2I9ZaY
+## Video Link : https://youtube.com/shorts/7a4q3haFLZ0?feature=share
 
 | Loading                  | Gameplay                  | Pause                  | Settings                  | Results                      |
 | ------------------------ | ------------------------- | ---------------------- | ------------------------- | ---------------------------- |
