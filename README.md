@@ -3,9 +3,7 @@
 For Lab 08 I kept working on my Lab 07 project, Comet Run. In Lab 07 it was only the menu flow
 with 10 screens and the gameplay screen was a fake HUD. For this lab I added a loading screen, a
 small playable game, sound effects, music, an Audio Mixer with volume sliders, and C# events.
-
-All the Lab 07 stuff is still there and works the same (screens, back button, tweens, the phone
-layout). The only new screen is the Loading screen, so now there are 11.
+there are 11 screens.
 
 Unity version: **6000.3.24f1** (builtin render pipeline, portrait, Android)
 
@@ -23,7 +21,7 @@ spinning cubes are asteroids, if you tap one you lose a life. You have 3 lives. 
 when the time runs out or you lose all your lives, and then the score gives you gems on the
 Results screen like in Lab 07.
 
-The flow is:
+## The flow is:
 Title > Main Menu > Mode > Level > Hangar > Loading > Gameplay > Results,
 and from Gameplay you can open Pause, and Settings from Pause.
 
