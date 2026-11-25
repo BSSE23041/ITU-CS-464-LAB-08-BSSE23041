@@ -7,27 +7,13 @@ small playable game, sound effects, music, an Audio Mixer with volume sliders, a
 All the Lab 07 stuff is still there and works the same (screens, back button, tweens, the phone
 layout). The only new screen is the Loading screen, so now there are 11.
 
-Unity version: **6000.3.24f1** (built-in render pipeline, portrait, Android)
+Unity version: **6000.3.24f1** (builtin render pipeline, portrait, Android)
 
-| Loading | Gameplay | Pause | Settings | Results |
-|---|---|---|---|---|
+## Video Link : https://youtu.be/YgCkZ2I9ZaY
+
+| Loading                  | Gameplay                  | Pause                  | Settings                  | Results                      |
+| ------------------------ | ------------------------- | ---------------------- | ------------------------- | ---------------------------- |
 | ![](Docs/11_loading.png) | ![](Docs/06_gameplay.png) | ![](Docs/07_pause.png) | ![](Docs/10_settings.png) | ![](Docs/08_results_win.png) |
-
-## Setup
-
-1. Open the folder in Unity Hub with Unity 6000.3.24f1.
-2. Open `Assets/CometRun/Scenes/Main.unity` and press Play.
-3. Set the Game view to a portrait size like 1080x1920, the UI is made for phones.
-
-Both scenes (Main and Gameplay) are already in the build list. If a scene ever gets messed up you
-can use the **Comet Run** menu at the top:
-
-- Build All Scenes - makes both scenes again and fixes the build list
-- Build Menu Scene / Build Gameplay Scene - just one of them
-- Build Android APK - puts the apk in `Builds/Android/CometRun.apk`
-
-I build my scenes from editor scripts (same as Lab 07) because placing everything by hand kept
-breaking.
 
 ## The game
 
@@ -68,12 +54,12 @@ File: `Assets/CometRun/Audio/GameMixer.mixer`
 The -80 dB in the picture is only the meter because nothing was playing. The faders are at 0 dB
 and the volume gets changed from code.
 
-| Group | What plays in it | Exposed parameter |
-|---|---|---|
-| Master | the other 3 groups go into this | MasterVolume |
-| Music | 2 music sources | MusicVolume |
-| SFX | 4 gameplay sound sources | SFXVolume |
-| UI | 1 UI sound source | UIVolume |
+| Group  | What plays in it                | Exposed parameter |
+| ------ | ------------------------------- | ----------------- |
+| Master | the other 3 groups go into this | MasterVolume      |
+| Music  | 2 music sources                 | MusicVolume       |
+| SFX    | 4 gameplay sound sources        | SFXVolume         |
+| UI     | 1 UI sound source               | UIVolume          |
 
 So there are only 7 AudioSources in the whole game and each one has its output set to the right
 group.
@@ -154,13 +140,13 @@ Events: `GameStarted`, `Collected`, `TimeBonus`, `Damaged`, `Died`, `CountdownTi
 
 Scripts that listen:
 
-| Script | What it does |
-|---|---|
-| GameplayScreen | updates score and lives, red flash when hit, shows GO! / TIME UP!, opens Results |
-| GameAudio | plays the gameplay sounds |
-| HitParticles | particles where you tapped |
-| CameraShake | shakes the camera when you get hit or die |
-| GameMusicSwitcher | changes the music when the run starts and ends |
+| Script            | What it does                                                                     |
+| ----------------- | -------------------------------------------------------------------------------- |
+| GameplayScreen    | updates score and lives, red flash when hit, shows GO! / TIME UP!, opens Results |
+| GameAudio         | plays the gameplay sounds                                                        |
+| HitParticles      | particles where you tapped                                                       |
+| CameraShake       | shakes the camera when you get hit or die                                        |
+| GameMusicSwitcher | changes the music when the run starts and ends                                   |
 
 Declaring and calling the events (`GameSession.cs`):
 
@@ -205,36 +191,14 @@ settings, resuming, restarting, finishing a run, retrying, losing all lives, goi
 and quitting from pause. I also closed and opened the game again to check the volume was saved.
 There were no errors in the Console.
 
-## Folders
-
-```
-Assets/CometRun/
-  Audio/        sounds, music and GameMixer
-  Materials/    colours for the shapes
-  Scenes/       Main.unity, Gameplay.unity
-  Scripts/
-    Editor/     scene builders and the apk build tool
-    Runtime/    Audio, Game, Screens, UI, Tweening, Data
-Tools/          make_audio.py (the script I made the sounds with)
-Docs/           screenshots for this readme
-```
-
-Library, Temp, Logs, obj and UserSettings are not included.
-
 ## Credits
 
 I didn't use any downloaded sounds or music. I made all of them myself with a small Python script
 (`Tools/make_audio.py`) that makes simple tones (sine, square, triangle and noise) and puts them
 together. The music is just a short chord loop (Am, F, C, G) with bass, an arpeggio and simple drums.
 
-| Files | Made by | Licence |
-|---|---|---|
-| ui_*.wav (10 sounds) | me, with Tools/make_audio.py | my own, CC0 |
-| sfx_*.wav (8 sounds) | me, with Tools/make_audio.py | my own, CC0 |
+| Files                          | Made by                      | Licence     |
+| ------------------------------ | ---------------------------- | ----------- |
+| ui\_\*.wav (10 sounds)         | me, with Tools/make_audio.py | my own, CC0 |
+| sfx\_\*.wav (8 sounds)         | me, with Tools/make_audio.py | my own, CC0 |
 | music_menu.wav, music_game.wav | me, with Tools/make_audio.py | my own, CC0 |
-
-If you want to make them again: `pip install numpy` and then `python Tools/make_audio.py` from
-the project folder.
-
-Everything else is Unity built-in stuff (the default font, UI sprites, basic shapes and the default
-particle material). No Asset Store packages.
